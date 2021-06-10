@@ -119,15 +119,30 @@ public class StudyInfoIm implements StudyInfo {
 		
 	}
 	
+	public void fineChk(StudyVO[] std) {
+		
+	}
 	
 	@Override
-	public void processStudy() {
+	public void processStudy(StudyVO[] std) {
 		
 	}
 
 	@Override
-	public void outputStudy() {
+	public void outputStudy(StudyVO[] std) {
 		
+		System.out.println("============================================================================");
+		System.out.println("                                 스터디관리");
+		System.out.println("============================================================================");
+		System.out.println("회원번호 | 회원이름 | 보증금 | 스터디날짜 | 챕터정리 | 과제 | 중간점검 | 최종점검 | 벌금 | 잔액");
+		System.out.println("----------------------------------------------------------------------------");
+		for(int i = 0; i < cnt; i++) {
+			System.out.printf("%3d, %3d, %5d, %5s, %3d, %3d, %3d, %3d, %5s, %5s", 
+					std[i].getMemberCode(), std[i].getMemberName(), std[i].getDeposit(), 
+					std[i].getStudyDate(), std[i].getChapter(), std[i].getTask(), std[i].getChk1(), 
+					std[i].getChk2(), std[i].getDeposit(), std[i].getBalance());
+			System.out.println("-------------------------------");
+		}
 	}
 
 	@Override

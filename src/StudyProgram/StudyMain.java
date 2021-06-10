@@ -38,7 +38,7 @@ public class StudyMain {
 				
 				break;
 			case 5:
-				
+				outputDeposit(info, std);
 				break;
 			default:
 				System.out.println("메뉴를 다시 선택하세요!!!\n");
