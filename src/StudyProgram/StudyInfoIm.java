@@ -7,6 +7,7 @@ public class StudyInfoIm implements StudyInfo {
 	Scanner scan = new Scanner(System.in);
 
 	static int cnt = 0;
+	static String deleteMem = "del";
 
 	@Override
 	public void joinStudy(StudyVO[] std) {
@@ -41,6 +42,7 @@ public class StudyInfoIm implements StudyInfo {
 
 		cnt++;
 		System.out.println(">>>가입완료.");
+		System.out.println();
 	}
 
 	@Override
@@ -79,7 +81,7 @@ public class StudyInfoIm implements StudyInfo {
 					System.out.println();
 					return;
 
-				}
+				} 
 
 			}
 		} else {
@@ -162,8 +164,7 @@ public class StudyInfoIm implements StudyInfo {
 
 				std[i].setFine(totFine);
 				std[i].setBalance(std[i].getDeposit() - std[i].getFine());
-				
-				
+				totFine = 0;
 			}
 
 		}
@@ -173,39 +174,47 @@ public class StudyInfoIm implements StudyInfo {
 	@Override
 	public void deleteStudy(StudyVO[] std) {
 
+		System.out.println(">>탈퇴<<");
+		System.out.print("회원번호 : ");
+		String memberCode = scan.nextLine();
+
+		if (cnt > 0) {
+			for (int i = 0; i < cnt; i++) {
+
+				if (std[i].getMemberCode().equals(memberCode)) {
+					std[i].setMemberCode(deleteMem);
+				}
+			}
+		}
 	}
 
 	@Override
-	public void outputDeposit(StudyVO[] std) {
-
-		System.out.println("===============================");
-		System.out.println("            벌금내역");
-		System.out.println("===============================");
-		System.out.println("회원번호 | 회원이름 | 스터디날짜 | 벌금");
-		System.out.println("-------------------------------");
+	public void outputFine(StudyVO[] std) {
 		for (int i = 0; i < cnt; i++) {
-			System.out.printf("%5s, %5s, %7s, %5d", std[i].getMemberCode(), std[i].getMemberName(),
-					std[i].getStudyDate(), std[i].getFine());
-			System.out.println("\n-------------------------------");
+			if (std[i].getFine() == 0) {
+
+			} else {
+				System.out.printf("%4s  %5s  %7s  %5d", std[i].getMemberCode(), std[i].getMemberName(),
+						std[i].getStudyDate(), std[i].getFine());
+				System.out.println("\n-------------------------------");
+
+			}
 		}
-			
 	}
 
 	@Override
 	public void outputStudy(StudyVO[] std) {
-
-		System.out.println("============================================================================");
-		System.out.println("                                 스터디관리");
-		System.out.println("============================================================================");
-		System.out.println("회원번호 | 회원이름 | 보증금 | 스터디날짜 | 챕터정리 | 과제 | 중간점검 | 최종점검 | 벌금 | 잔액");
-		System.out.println("----------------------------------------------------------------------------");
 		for (int i = 0; i < cnt; i++) {
-			System.out.printf("%5s, %5s, %6d, %6s, %6s, %6s, %6s, %6s, %5d, %5d", 
-					std[i].getMemberCode(), std[i].getMemberName(), std[i].getDeposit(), std[i].getStudyDate(), 
-					std[i].getChapter(), std[i].getTask(), std[i].getChk1(), std[i].getChk2(), std[i].getFine(), std[i].getBalance());
-			System.out.println("\n----------------------------------------------------------------------------");
+			if (deleteMem.equals(std[i].getMemberCode())) {
+
+			} else {
+				System.out.printf("%5s  %5s  %6d  %6s  %6s  %6s  %6s  %6s   %5d %5d", std[i].getMemberCode(),
+						std[i].getMemberName(), std[i].getDeposit(), std[i].getStudyDate(), std[i].getChapter(),
+						std[i].getTask(), std[i].getChk1(), std[i].getChk2(), std[i].getFine(), std[i].getBalance());
+				System.out.println("\n----------------------------------------------------------------------------");
+			}
 		}
-		System.out.println("총 보증금 : %6d 총 벌금 : %6d 총 잔액 : 6d");
+
 	}
 
 }
