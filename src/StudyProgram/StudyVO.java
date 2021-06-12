@@ -11,6 +11,7 @@ public class StudyVO {
 	private String task; // 과제
 	private String chk1; // 중간점검
 	private String chk2; // 최종점검
+	
 	private int fine; // 벌금
 	private int balance; // 잔액
 	

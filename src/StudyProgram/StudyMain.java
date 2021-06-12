@@ -15,7 +15,7 @@ public class StudyMain {
 		int menu;
 		
 		while(true) {
-			
+		
 			menu();
 			
 			Scanner scan = new Scanner(System.in);
@@ -35,11 +35,14 @@ public class StudyMain {
 				update(info, std);
 				break;
 			case 4:
-				
+				delete(info, std);
 				break;
 			case 5:
 				outputDeposit(info, std);
 				break;
+			case 6:
+				outputStudy(info, std);
+				break;	
 			default:
 				System.out.println("메뉴를 다시 선택하세요!!!\n");
 			}
@@ -66,22 +69,27 @@ public class StudyMain {
 	static void join(StudyInfoIm info, StudyVO[] std) {
 		std[info.cnt] = new StudyVO();
 		info.joinStudy(std);
-		info.cnt++;
-		System.out.println();
-		System.out.println(">>>가입완료.");
-		System.out.println();
 	}
 	
 	static void input(StudyInfoIm info, StudyVO[] std) {
 		info.inputStudy(std);
+		info.fineChk(std);
 	}
 	 
 	static void update(StudyInfoIm info, StudyVO[] std) {
 		info.updateStudy(std);
+		info.fineChk(std);
+	}
+	
+	static void delete(StudyInfoIm info, StudyVO[] std) {
+		
 	}
 	
 	static void outputDeposit(StudyInfoIm info, StudyVO[] std) {
 		info.outputDeposit(std);
 	}
 	
+	static void outputStudy(StudyInfoIm info, StudyVO[] std) {
+		info.outputStudy(std);
+	}
 }
