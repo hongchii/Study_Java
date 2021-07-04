@@ -7,11 +7,14 @@ public class OrderMain {
 
 	public static void main(String[] args) {
         
+		OrderServiceImpl order = new OrderServiceImpl();
 		ArrayList list = new ArrayList();
-		
+		ArrayList<ChoiceVO> choice = new ArrayList();
 		int menu;
 		
 		while(true) {
+			
+			menu();
 			
 			Scanner scan = new Scanner(System.in);
 			menu = scan.nextInt();
@@ -19,7 +22,10 @@ public class OrderMain {
 			
 			switch(menu) {
 			case 1 :
-				setOrder(list);
+				//setOrder(choice);
+				System.out.print("아메리카노");
+				System.out.print("1.ice 2.hot 선택 (주문취소 c) :");
+				
 				break;
 			case 2 :
 				
@@ -57,8 +63,11 @@ public class OrderMain {
 		System.out.println("음료를 선택해주세요 : ");
 		
 	}
-	
-	static void setOrder(ArrayList list) {
+
+	static void setOrder(ArrayList choice) {
+		System.out.print("아메리카노");
+		System.out.print("1.ice 2.hot 선택 (주문취소 c) :");
+		
 		
 	}
 }
