@@ -96,7 +96,7 @@ public class OrderMain {
 
 	}
 	
-	static void order(MenuVO menu) {
+static void order(MenuVO menu) {
 		
 		System.out.println("주문완료");
 		System.out.println("=============================");
@@ -104,7 +104,7 @@ public class OrderMain {
 		System.out.println("============결제내역===========");
 		System.out.println("품목           수량         금액");
 		System.out.println("-----------------------------");
-		System.out.printf("%5s, %4d", menu.getCoffee());
+		System.out.println(menu.getCoffee());
 		System.out.println("추가 " + menu.getIceOrHot());
 		System.out.println("추가 " + menu.getShot());
 		System.out.println("추가 " + menu.getSize());
