@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TcpIpServer4 {
+public class TcpIpServer4 implements Runnable {
 
 	ServerSocket serverSocket;
 	Thread[] threadArr;
