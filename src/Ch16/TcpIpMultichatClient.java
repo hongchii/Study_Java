@@ -68,6 +68,8 @@ public class TcpIpMultichatClient {
 			this.socket = socket;
 			try {
 				in = new DataInputStream(socket.getInputStream());
+			} catch(IOException e) {
+				
 			}
 		}
 
