@@ -33,7 +33,7 @@ public class UdpServer {
 
 	public static void main(String[] args) {
 		try {
-			new UdpServer.start();
+			new UdpServer().start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
