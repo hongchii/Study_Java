@@ -1,10 +1,7 @@
 package Ch16;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 import java.util.Scanner;
 
 public class TcpIpMultichatClient {
@@ -48,13 +45,13 @@ public class TcpIpMultichatClient {
 		public void run() {
 			Scanner scanner = new Scanner(System.in);
 			try {
-				if(out!=null) {
+				if (out != null) {
 					out.writeUTF(name);
 				}
-				while(out!=null)
-					out.writeUTF("["+name+"]"+scanner.nextLine();
-			} catch(IOException e) {
-				
+				while (out != null)
+					out.writeUTF("[" + name + "]" + scanner.nextLine());
+			} catch (IOException e) {
+
 			}
 		}
 
@@ -77,7 +74,7 @@ public class TcpIpMultichatClient {
 			while (in != null) {
 				try {
 					System.out.println(in.readUTF());
-				} catch (IOEXception e) {
+				} catch (IOException e) {
 
 				}
 			}
