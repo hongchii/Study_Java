@@ -6,8 +6,8 @@ import java.util.Map;
 public class ThreadEx11 {
 
 	public static void main(String[] args) throws Exception {
-		ThreadEx1_1 t1 = new ThreadEx11_1("Thread1");
-		ThreadEx1_2 t2 = new ThreadEx11_2("Thread2");
+		ThreadEx11_1 t1 = new ThreadEx11_1("Thread1");
+		ThreadEx11_2 t2 = new ThreadEx11_2("Thread2");
 		t1.start();
 		t2.start();
 	}
